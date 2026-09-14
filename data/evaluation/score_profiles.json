@@ -1,0 +1,119 @@
+{
+  "dataset_name": "score_profiles_v1",
+  "synthetic": true,
+  "description": "Constructed multi-skill profiles for heuristic score sanity checks only. No gold numeric scores.",
+  "profiles": [
+    {
+      "id": "prof_strong",
+      "tier": "strong",
+      "resume_skills": [
+        "Python",
+        "FastAPI",
+        "Docker",
+        "PostgreSQL",
+        "AWS",
+        "PyTorch",
+        "Natural Language Processing",
+        "Git"
+      ],
+      "jd_skills": [
+        "Python",
+        "FastAPI",
+        "Docker",
+        "PostgreSQL",
+        "AWS",
+        "PyTorch",
+        "Natural Language Processing"
+      ],
+      "notes": "Near-complete exact overlap"
+    },
+    {
+      "id": "prof_medium",
+      "tier": "medium",
+      "resume_skills": [
+        "Python",
+        "Flask",
+        "MySQL",
+        "Docker",
+        "spaCy",
+        "Git"
+      ],
+      "jd_skills": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "Kubernetes",
+        "Natural Language Processing",
+        "AWS"
+      ],
+      "notes": "Some exact, some related, some missing"
+    },
+    {
+      "id": "prof_weak",
+      "tier": "weak",
+      "resume_skills": [
+        "HTML",
+        "CSS",
+        "Excel",
+        "Git"
+      ],
+      "jd_skills": [
+        "Python",
+        "FastAPI",
+        "Kubernetes",
+        "PyTorch",
+        "AWS",
+        "PostgreSQL"
+      ],
+      "notes": "Mostly unrelated to JD requirements"
+    },
+    {
+      "id": "prof_exact_only_gap",
+      "tier": "medium",
+      "resume_skills": [
+        "Python",
+        "Docker",
+        "SQL"
+      ],
+      "jd_skills": [
+        "Python",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ],
+      "notes": "Half exact; remaining are container/IaC adjacent or missing"
+    },
+    {
+      "id": "prof_semantic_heavy",
+      "tier": "medium",
+      "resume_skills": [
+        "Flask",
+        "MySQL",
+        "spaCy",
+        "scikit-learn"
+      ],
+      "jd_skills": [
+        "FastAPI",
+        "PostgreSQL",
+        "Natural Language Processing",
+        "Machine Learning"
+      ],
+      "notes": "Little exact overlap; related pairs should lift semantic system vs baseline"
+    },
+    {
+      "id": "prof_false_friend_risk",
+      "tier": "weak",
+      "resume_skills": [
+        "Java",
+        "Git",
+        "Linux"
+      ],
+      "jd_skills": [
+        "JavaScript",
+        "React",
+        "Kubernetes"
+      ],
+      "notes": "Java vs JavaScript style risk; should remain weak overall"
+    }
+  ]
+}

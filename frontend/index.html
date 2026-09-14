@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Career Intelligence Engine</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="brand">AI Career Intelligence Engine</p>
+      <h1>See how your resume aligns with a role</h1>
+      <p class="subtitle">
+        Upload a resume PDF and paste a job description. Exact matching plus
+        embedding similarity produce an interpretable skill-fit score.
+      </p>
+    </header>
+
+    <main>
+      <form id="analyze-form" class="panel">
+        <label class="field">
+          <span>Resume PDF</span>
+          <input id="resume" name="resume" type="file" accept="application/pdf,.pdf" required />
+        </label>
+
+        <label class="field">
+          <span>Job description</span>
+          <textarea
+            id="job_description"
+            name="job_description"
+            rows="10"
+            placeholder="Paste the full job description here..."
+            required
+          ></textarea>
+        </label>
+
+        <button id="submit-btn" type="submit">Analyze match</button>
+        <p id="status" class="status" aria-live="polite"></p>
+      </form>
+
+      <section id="results" class="results hidden">
+        <div class="score-block">
+          <div class="score-ring">
+            <span id="score-value">0</span>
+            <small>/ 100</small>
+          </div>
+          <div class="score-meta">
+            <h2>Match score</h2>
+            <p id="score-formula" class="muted"></p>
+            <ul id="score-stats" class="stats"></ul>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article>
+            <h3>Matched skills</h3>
+            <ul id="matched-list" class="chips"></ul>
+          </article>
+          <article>
+            <h3>Semantic matches</h3>
+            <ul id="semantic-list" class="chips"></ul>
+          </article>
+          <article>
+            <h3>Partial matches</h3>
+            <ul id="partial-list" class="chips"></ul>
+          </article>
+          <article>
+            <h3>Missing skills</h3>
+            <ul id="missing-list" class="chips"></ul>
+          </article>
+        </div>
+
+        <article class="gaps">
+          <h3>Prioritized skill gaps</h3>
+          <ol id="gaps-list"></ol>
+        </article>
+
+        <div class="recs-grid">
+          <article class="recs">
+            <h3>Resume suggestions</h3>
+            <p class="muted small" id="recs-note"></p>
+            <ul id="resume-tips"></ul>
+          </article>
+          <article class="recs">
+            <h3>Interview questions</h3>
+            <ol id="interview-qs"></ol>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Model / cache downloads
+.cache/
+**/sentence-transformers/
+torch_cache/
+huggingface/
+.huggingface/
+*.safetensors
+*.bin
+*.pt
+*.onnx
+
+# Local artifacts
+*.log
+uploads/
+tmp/
+.temp/
+data/evaluation/out/run_stdout.txt
+data/evaluation/out/run_stderr.txt
+test_output.txt

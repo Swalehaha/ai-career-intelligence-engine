@@ -1,0 +1,586 @@
+{
+  "dataset": "skill_pair_v1",
+  "synthetic": true,
+  "thresholds": {
+    "match_threshold": 0.6,
+    "partial_threshold": 0.45
+  },
+  "label_mapping_note": "System buckets semantic_matched and partial both map to gold label 'partial' (related). Baseline never predicts partial.",
+  "baseline": {
+    "n_examples": 30,
+    "label_accuracy": 0.5,
+    "macro_f1": 0.5152,
+    "per_class": {
+      "exact": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0
+      },
+      "partial": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 15,
+        "tp": 0,
+        "fp": 0,
+        "fn": 15
+      },
+      "missing": {
+        "precision": 0.375,
+        "recall": 1.0,
+        "f1": 0.5455,
+        "support": 9,
+        "tp": 9,
+        "fp": 15,
+        "fn": 0
+      }
+    },
+    "confusion_matrix": {
+      "exact": {
+        "exact": 6,
+        "partial": 0,
+        "missing": 0
+      },
+      "partial": {
+        "exact": 0,
+        "partial": 0,
+        "missing": 15
+      },
+      "missing": {
+        "exact": 0,
+        "partial": 0,
+        "missing": 9
+      }
+    },
+    "label_distribution_true": {
+      "exact": 6,
+      "partial": 15,
+      "missing": 9
+    },
+    "label_distribution_pred": {
+      "exact": 6,
+      "partial": 0,
+      "missing": 24
+    }
+  },
+  "exact_plus_semantic": {
+    "n_examples": 30,
+    "label_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "exact": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0
+      },
+      "partial": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 15,
+        "tp": 15,
+        "fp": 0,
+        "fn": 0
+      },
+      "missing": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 9,
+        "tp": 9,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "confusion_matrix": {
+      "exact": {
+        "exact": 6,
+        "partial": 0,
+        "missing": 0
+      },
+      "partial": {
+        "exact": 0,
+        "partial": 15,
+        "missing": 0
+      },
+      "missing": {
+        "exact": 0,
+        "partial": 0,
+        "missing": 9
+      }
+    },
+    "label_distribution_true": {
+      "exact": 6,
+      "partial": 15,
+      "missing": 9
+    },
+    "label_distribution_pred": {
+      "exact": 6,
+      "partial": 15,
+      "missing": 9
+    }
+  },
+  "baseline_errors": [
+    {
+      "id": "sp07",
+      "resume_skill": "Flask",
+      "jd_skill": "FastAPI",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "framework_family",
+      "notes": "Both Python web API frameworks"
+    },
+    {
+      "id": "sp08",
+      "resume_skill": "Django",
+      "jd_skill": "Flask",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "framework_family",
+      "notes": "Both Python web frameworks"
+    },
+    {
+      "id": "sp09",
+      "resume_skill": "MySQL",
+      "jd_skill": "PostgreSQL",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "database_family",
+      "notes": "Both relational SQL databases"
+    },
+    {
+      "id": "sp10",
+      "resume_skill": "PostgreSQL",
+      "jd_skill": "MySQL",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "database_family",
+      "notes": "Both relational SQL databases"
+    },
+    {
+      "id": "sp11",
+      "resume_skill": "spaCy",
+      "jd_skill": "Natural Language Processing",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "library_vs_concept",
+      "notes": "Library commonly used to demonstrate NLP"
+    },
+    {
+      "id": "sp12",
+      "resume_skill": "Natural Language Processing",
+      "jd_skill": "spaCy",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "concept_vs_library",
+      "notes": "Concept vs common NLP library"
+    },
+    {
+      "id": "sp13",
+      "resume_skill": "scikit-learn",
+      "jd_skill": "Machine Learning",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "library_vs_concept",
+      "notes": "Classical ML library vs ML concept"
+    },
+    {
+      "id": "sp14",
+      "resume_skill": "PyTorch",
+      "jd_skill": "Deep Learning",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "library_vs_concept",
+      "notes": "DL framework vs DL concept"
+    },
+    {
+      "id": "sp15",
+      "resume_skill": "TensorFlow",
+      "jd_skill": "PyTorch",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "framework_family",
+      "notes": "Both deep learning frameworks"
+    },
+    {
+      "id": "sp16",
+      "resume_skill": "Docker",
+      "jd_skill": "Kubernetes",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "tool_adjacency",
+      "notes": "Related container ecosystem; not identical"
+    },
+    {
+      "id": "sp17",
+      "resume_skill": "AWS",
+      "jd_skill": "GCP",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "cloud_family",
+      "notes": "Major cloud platforms; related but not interchangeable without transfer"
+    },
+    {
+      "id": "sp18",
+      "resume_skill": "React",
+      "jd_skill": "Next.js",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "framework_family",
+      "notes": "Next.js is React-based"
+    },
+    {
+      "id": "sp28",
+      "resume_skill": "NLTK",
+      "jd_skill": "Natural Language Processing",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "library_vs_concept",
+      "notes": "NLP toolkit vs NLP concept"
+    },
+    {
+      "id": "sp29",
+      "resume_skill": "CI/CD",
+      "jd_skill": "GitHub Actions",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "concept_vs_tool",
+      "notes": "CI/CD concept vs a common CI/CD tool"
+    },
+    {
+      "id": "sp30",
+      "resume_skill": "REST APIs",
+      "jd_skill": "GraphQL",
+      "expected": "partial",
+      "predicted": "missing",
+      "similarity": null,
+      "category": "api_style_family",
+      "notes": "Both API interface styles; related but not identical"
+    }
+  ],
+  "semantic_errors": [],
+  "predictions": [
+    {
+      "id": "sp01",
+      "resume_skill": "Python",
+      "jd_skill": "Python",
+      "expected": "exact",
+      "baseline_pred": "exact",
+      "full_pred": "exact",
+      "full_similarity": 1.0,
+      "category": "identical"
+    },
+    {
+      "id": "sp02",
+      "resume_skill": "Docker",
+      "jd_skill": "Docker",
+      "expected": "exact",
+      "baseline_pred": "exact",
+      "full_pred": "exact",
+      "full_similarity": 1.0,
+      "category": "identical"
+    },
+    {
+      "id": "sp03",
+      "resume_skill": "PostgreSQL",
+      "jd_skill": "PostgreSQL",
+      "expected": "exact",
+      "baseline_pred": "exact",
+      "full_pred": "exact",
+      "full_similarity": 1.0,
+      "category": "identical"
+    },
+    {
+      "id": "sp04",
+      "resume_skill": "React",
+      "jd_skill": "React",
+      "expected": "exact",
+      "baseline_pred": "exact",
+      "full_pred": "exact",
+      "full_similarity": 1.0,
+      "category": "identical"
+    },
+    {
+      "id": "sp05",
+      "resume_skill": "AWS",
+      "jd_skill": "AWS",
+      "expected": "exact",
+      "baseline_pred": "exact",
+      "full_pred": "exact",
+      "full_similarity": 1.0,
+      "category": "identical"
+    },
+    {
+      "id": "sp06",
+      "resume_skill": "FastAPI",
+      "jd_skill": "FastAPI",
+      "expected": "exact",
+      "baseline_pred": "exact",
+      "full_pred": "exact",
+      "full_similarity": 1.0,
+      "category": "identical"
+    },
+    {
+      "id": "sp07",
+      "resume_skill": "Flask",
+      "jd_skill": "FastAPI",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.6408,
+      "category": "framework_family"
+    },
+    {
+      "id": "sp08",
+      "resume_skill": "Django",
+      "jd_skill": "Flask",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.7138,
+      "category": "framework_family"
+    },
+    {
+      "id": "sp09",
+      "resume_skill": "MySQL",
+      "jd_skill": "PostgreSQL",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.6886,
+      "category": "database_family"
+    },
+    {
+      "id": "sp10",
+      "resume_skill": "PostgreSQL",
+      "jd_skill": "MySQL",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.6886,
+      "category": "database_family"
+    },
+    {
+      "id": "sp11",
+      "resume_skill": "spaCy",
+      "jd_skill": "Natural Language Processing",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.7108,
+      "category": "library_vs_concept"
+    },
+    {
+      "id": "sp12",
+      "resume_skill": "Natural Language Processing",
+      "jd_skill": "spaCy",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.7108,
+      "category": "concept_vs_library"
+    },
+    {
+      "id": "sp13",
+      "resume_skill": "scikit-learn",
+      "jd_skill": "Machine Learning",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.5271,
+      "category": "library_vs_concept"
+    },
+    {
+      "id": "sp14",
+      "resume_skill": "PyTorch",
+      "jd_skill": "Deep Learning",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.5663,
+      "category": "library_vs_concept"
+    },
+    {
+      "id": "sp15",
+      "resume_skill": "TensorFlow",
+      "jd_skill": "PyTorch",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.7509,
+      "category": "framework_family"
+    },
+    {
+      "id": "sp16",
+      "resume_skill": "Docker",
+      "jd_skill": "Kubernetes",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.5903,
+      "category": "tool_adjacency"
+    },
+    {
+      "id": "sp17",
+      "resume_skill": "AWS",
+      "jd_skill": "GCP",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.6482,
+      "category": "cloud_family"
+    },
+    {
+      "id": "sp18",
+      "resume_skill": "React",
+      "jd_skill": "Next.js",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.5389,
+      "category": "framework_family"
+    },
+    {
+      "id": "sp19",
+      "resume_skill": "Docker",
+      "jd_skill": "Tableau",
+      "expected": "missing",
+      "baseline_pred": "missing",
+      "full_pred": "missing",
+      "full_similarity": 0.1184,
+      "category": "unrelated"
+    },
+    {
+      "id": "sp20",
+      "resume_skill": "React",
+      "jd_skill": "Kubernetes",
+      "expected": "missing",
+      "baseline_pred": "missing",
+      "full_pred": "missing",
+      "full_similarity": 0.0637,
+      "category": "unrelated"
+    },
+    {
+      "id": "sp21",
+      "resume_skill": "Excel",
+      "jd_skill": "PyTorch",
+      "expected": "missing",
+      "baseline_pred": "missing",
+      "full_pred": "missing",
+      "full_similarity": 0.0095,
+      "category": "unrelated"
+    },
+    {
+      "id": "sp22",
+      "resume_skill": "Git",
+      "jd_skill": "MongoDB",
+      "expected": "missing",
+      "baseline_pred": "missing",
+      "full_pred": "missing",
+      "full_similarity": 0.0533,
+      "category": "unrelated"
+    },
+    {
+      "id": "sp23",
+      "resume_skill": "HTML",
+      "jd_skill": "Kafka",
+      "expected": "missing",
+      "baseline_pred": "missing",
+      "full_pred": "missing",
+      "full_similarity": 0.0187,
+      "category": "unrelated"
+    },
+    {
+      "id": "sp24",
+      "resume_skill": "Tableau",
+      "jd_skill": "Terraform",
+      "expected": "missing",
+      "baseline_pred": "missing",
+      "full_pred": "missing",
+      "full_similarity": 0.0277,
+      "category": "unrelated"
+    },
+    {
+      "id": "sp25",
+      "resume_skill": "Java",
+      "jd_skill": "CSS",
+      "expected": "missing",
+      "baseline_pred": "missing",
+      "full_pred": "missing",
+      "full_similarity": 0.0565,
+      "category": "unrelated"
+    },
+    {
+      "id": "sp26",
+      "resume_skill": "Redis",
+      "jd_skill": "Agile",
+      "expected": "missing",
+      "baseline_pred": "missing",
+      "full_pred": "missing",
+      "full_similarity": 0.0418,
+      "category": "tool_vs_process"
+    },
+    {
+      "id": "sp27",
+      "resume_skill": "Pandas",
+      "jd_skill": "Docker",
+      "expected": "missing",
+      "baseline_pred": "missing",
+      "full_pred": "missing",
+      "full_similarity": 0.0563,
+      "category": "unrelated"
+    },
+    {
+      "id": "sp28",
+      "resume_skill": "NLTK",
+      "jd_skill": "Natural Language Processing",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.6571,
+      "category": "library_vs_concept"
+    },
+    {
+      "id": "sp29",
+      "resume_skill": "CI/CD",
+      "jd_skill": "GitHub Actions",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.7574,
+      "category": "concept_vs_tool"
+    },
+    {
+      "id": "sp30",
+      "resume_skill": "REST APIs",
+      "jd_skill": "GraphQL",
+      "expected": "partial",
+      "baseline_pred": "missing",
+      "full_pred": "partial",
+      "full_similarity": 0.594,
+      "category": "api_style_family"
+    }
+  ]
+}

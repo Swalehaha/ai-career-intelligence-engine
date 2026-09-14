@@ -1,0 +1,248 @@
+{
+  "dataset_name": "skill_pair_v1",
+  "synthetic": true,
+  "description": "Constructed skill-pair labels for matching evaluation. Defined before metrics were computed.",
+  "label_set": ["exact", "partial", "missing"],
+  "examples": [
+    {
+      "id": "sp01",
+      "resume_skill": "Python",
+      "jd_skill": "Python",
+      "expected": "exact",
+      "category": "identical",
+      "notes": "Identical canonical skill"
+    },
+    {
+      "id": "sp02",
+      "resume_skill": "Docker",
+      "jd_skill": "Docker",
+      "expected": "exact",
+      "category": "identical",
+      "notes": "Identical canonical skill"
+    },
+    {
+      "id": "sp03",
+      "resume_skill": "PostgreSQL",
+      "jd_skill": "PostgreSQL",
+      "expected": "exact",
+      "category": "identical",
+      "notes": "Identical canonical skill"
+    },
+    {
+      "id": "sp04",
+      "resume_skill": "React",
+      "jd_skill": "React",
+      "expected": "exact",
+      "category": "identical",
+      "notes": "Identical canonical skill"
+    },
+    {
+      "id": "sp05",
+      "resume_skill": "AWS",
+      "jd_skill": "AWS",
+      "expected": "exact",
+      "category": "identical",
+      "notes": "Identical canonical skill"
+    },
+    {
+      "id": "sp06",
+      "resume_skill": "FastAPI",
+      "jd_skill": "FastAPI",
+      "expected": "exact",
+      "category": "identical",
+      "notes": "Identical canonical skill"
+    },
+    {
+      "id": "sp07",
+      "resume_skill": "Flask",
+      "jd_skill": "FastAPI",
+      "expected": "partial",
+      "category": "framework_family",
+      "notes": "Both Python web API frameworks"
+    },
+    {
+      "id": "sp08",
+      "resume_skill": "Django",
+      "jd_skill": "Flask",
+      "expected": "partial",
+      "category": "framework_family",
+      "notes": "Both Python web frameworks"
+    },
+    {
+      "id": "sp09",
+      "resume_skill": "MySQL",
+      "jd_skill": "PostgreSQL",
+      "expected": "partial",
+      "category": "database_family",
+      "notes": "Both relational SQL databases"
+    },
+    {
+      "id": "sp10",
+      "resume_skill": "PostgreSQL",
+      "jd_skill": "MySQL",
+      "expected": "partial",
+      "category": "database_family",
+      "notes": "Both relational SQL databases"
+    },
+    {
+      "id": "sp11",
+      "resume_skill": "spaCy",
+      "jd_skill": "Natural Language Processing",
+      "expected": "partial",
+      "category": "library_vs_concept",
+      "notes": "Library commonly used to demonstrate NLP"
+    },
+    {
+      "id": "sp12",
+      "resume_skill": "Natural Language Processing",
+      "jd_skill": "spaCy",
+      "expected": "partial",
+      "category": "concept_vs_library",
+      "notes": "Concept vs common NLP library"
+    },
+    {
+      "id": "sp13",
+      "resume_skill": "scikit-learn",
+      "jd_skill": "Machine Learning",
+      "expected": "partial",
+      "category": "library_vs_concept",
+      "notes": "Classical ML library vs ML concept"
+    },
+    {
+      "id": "sp14",
+      "resume_skill": "PyTorch",
+      "jd_skill": "Deep Learning",
+      "expected": "partial",
+      "category": "library_vs_concept",
+      "notes": "DL framework vs DL concept"
+    },
+    {
+      "id": "sp15",
+      "resume_skill": "TensorFlow",
+      "jd_skill": "PyTorch",
+      "expected": "partial",
+      "category": "framework_family",
+      "notes": "Both deep learning frameworks"
+    },
+    {
+      "id": "sp16",
+      "resume_skill": "Docker",
+      "jd_skill": "Kubernetes",
+      "expected": "partial",
+      "category": "tool_adjacency",
+      "notes": "Related container ecosystem; not identical"
+    },
+    {
+      "id": "sp17",
+      "resume_skill": "AWS",
+      "jd_skill": "GCP",
+      "expected": "partial",
+      "category": "cloud_family",
+      "notes": "Major cloud platforms; related but not interchangeable without transfer"
+    },
+    {
+      "id": "sp18",
+      "resume_skill": "React",
+      "jd_skill": "Next.js",
+      "expected": "partial",
+      "category": "framework_family",
+      "notes": "Next.js is React-based"
+    },
+    {
+      "id": "sp19",
+      "resume_skill": "Docker",
+      "jd_skill": "Tableau",
+      "expected": "missing",
+      "category": "unrelated",
+      "notes": "Containers vs BI visualization"
+    },
+    {
+      "id": "sp20",
+      "resume_skill": "React",
+      "jd_skill": "Kubernetes",
+      "expected": "missing",
+      "category": "unrelated",
+      "notes": "Frontend vs orchestration"
+    },
+    {
+      "id": "sp21",
+      "resume_skill": "Excel",
+      "jd_skill": "PyTorch",
+      "expected": "missing",
+      "category": "unrelated",
+      "notes": "Spreadsheet vs DL framework"
+    },
+    {
+      "id": "sp22",
+      "resume_skill": "Git",
+      "jd_skill": "MongoDB",
+      "expected": "missing",
+      "category": "unrelated",
+      "notes": "VCS vs document database"
+    },
+    {
+      "id": "sp23",
+      "resume_skill": "HTML",
+      "jd_skill": "Kafka",
+      "expected": "missing",
+      "category": "unrelated",
+      "notes": "Markup vs streaming platform"
+    },
+    {
+      "id": "sp24",
+      "resume_skill": "Tableau",
+      "jd_skill": "Terraform",
+      "expected": "missing",
+      "category": "unrelated",
+      "notes": "BI vs IaC"
+    },
+    {
+      "id": "sp25",
+      "resume_skill": "Java",
+      "jd_skill": "CSS",
+      "expected": "missing",
+      "category": "unrelated",
+      "notes": "Backend language vs styling"
+    },
+    {
+      "id": "sp26",
+      "resume_skill": "Redis",
+      "jd_skill": "Agile",
+      "expected": "missing",
+      "category": "tool_vs_process",
+      "notes": "Cache technology vs process methodology"
+    },
+    {
+      "id": "sp27",
+      "resume_skill": "Pandas",
+      "jd_skill": "Docker",
+      "expected": "missing",
+      "category": "unrelated",
+      "notes": "Data library vs containers"
+    },
+    {
+      "id": "sp28",
+      "resume_skill": "NLTK",
+      "jd_skill": "Natural Language Processing",
+      "expected": "partial",
+      "category": "library_vs_concept",
+      "notes": "NLP toolkit vs NLP concept"
+    },
+    {
+      "id": "sp29",
+      "resume_skill": "CI/CD",
+      "jd_skill": "GitHub Actions",
+      "expected": "partial",
+      "category": "concept_vs_tool",
+      "notes": "CI/CD concept vs a common CI/CD tool"
+    },
+    {
+      "id": "sp30",
+      "resume_skill": "REST APIs",
+      "jd_skill": "GraphQL",
+      "expected": "partial",
+      "category": "api_style_family",
+      "notes": "Both API interface styles; related but not identical"
+    }
+  ]
+}

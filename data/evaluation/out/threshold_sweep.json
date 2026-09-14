@@ -1,0 +1,529 @@
+{
+  "production_defaults": {
+    "match_threshold": 0.6,
+    "partial_threshold": 0.45
+  },
+  "n_configs_evaluated": 22,
+  "ranked_configs": [
+    {
+      "match_threshold": 0.5,
+      "partial_threshold": 0.35,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.5,
+      "partial_threshold": 0.4,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.5,
+      "partial_threshold": 0.45,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.55,
+      "partial_threshold": 0.35,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.55,
+      "partial_threshold": 0.4,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.55,
+      "partial_threshold": 0.45,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.55,
+      "partial_threshold": 0.5,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.6,
+      "partial_threshold": 0.35,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.6,
+      "partial_threshold": 0.4,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.6,
+      "partial_threshold": 0.45,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.6,
+      "partial_threshold": 0.5,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.65,
+      "partial_threshold": 0.35,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.65,
+      "partial_threshold": 0.4,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.65,
+      "partial_threshold": 0.45,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.65,
+      "partial_threshold": 0.5,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.7,
+      "partial_threshold": 0.35,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.7,
+      "partial_threshold": 0.4,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.7,
+      "partial_threshold": 0.45,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.7,
+      "partial_threshold": 0.5,
+      "label_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "partial_precision": 1.0,
+      "partial_recall": 1.0,
+      "partial_f1": 1.0,
+      "missing_precision": 1.0,
+      "missing_recall": 1.0,
+      "missing_f1": 1.0,
+      "partial_fp": 0,
+      "partial_fn": 0
+    },
+    {
+      "match_threshold": 0.6,
+      "partial_threshold": 0.55,
+      "label_accuracy": 0.9333,
+      "macro_f1": 0.9429,
+      "partial_precision": 1.0,
+      "partial_recall": 0.8667,
+      "partial_f1": 0.9286,
+      "missing_precision": 0.8182,
+      "missing_recall": 1.0,
+      "missing_f1": 0.9,
+      "partial_fp": 0,
+      "partial_fn": 2
+    },
+    {
+      "match_threshold": 0.65,
+      "partial_threshold": 0.55,
+      "label_accuracy": 0.9333,
+      "macro_f1": 0.9429,
+      "partial_precision": 1.0,
+      "partial_recall": 0.8667,
+      "partial_f1": 0.9286,
+      "missing_precision": 0.8182,
+      "missing_recall": 1.0,
+      "missing_f1": 0.9,
+      "partial_fp": 0,
+      "partial_fn": 2
+    },
+    {
+      "match_threshold": 0.7,
+      "partial_threshold": 0.55,
+      "label_accuracy": 0.9333,
+      "macro_f1": 0.9429,
+      "partial_precision": 1.0,
+      "partial_recall": 0.8667,
+      "partial_f1": 0.9286,
+      "missing_precision": 0.8182,
+      "missing_recall": 1.0,
+      "missing_f1": 0.9,
+      "partial_fp": 0,
+      "partial_fn": 2
+    }
+  ],
+  "pair_similarities": [
+    {
+      "id": "sp01",
+      "resume_skill": "Python",
+      "jd_skill": "Python",
+      "expected": "exact",
+      "similarity": 1.0
+    },
+    {
+      "id": "sp02",
+      "resume_skill": "Docker",
+      "jd_skill": "Docker",
+      "expected": "exact",
+      "similarity": 1.0
+    },
+    {
+      "id": "sp03",
+      "resume_skill": "PostgreSQL",
+      "jd_skill": "PostgreSQL",
+      "expected": "exact",
+      "similarity": 1.0
+    },
+    {
+      "id": "sp04",
+      "resume_skill": "React",
+      "jd_skill": "React",
+      "expected": "exact",
+      "similarity": 1.0
+    },
+    {
+      "id": "sp05",
+      "resume_skill": "AWS",
+      "jd_skill": "AWS",
+      "expected": "exact",
+      "similarity": 1.0
+    },
+    {
+      "id": "sp06",
+      "resume_skill": "FastAPI",
+      "jd_skill": "FastAPI",
+      "expected": "exact",
+      "similarity": 1.0
+    },
+    {
+      "id": "sp07",
+      "resume_skill": "Flask",
+      "jd_skill": "FastAPI",
+      "expected": "partial",
+      "similarity": 0.6408
+    },
+    {
+      "id": "sp08",
+      "resume_skill": "Django",
+      "jd_skill": "Flask",
+      "expected": "partial",
+      "similarity": 0.7138
+    },
+    {
+      "id": "sp09",
+      "resume_skill": "MySQL",
+      "jd_skill": "PostgreSQL",
+      "expected": "partial",
+      "similarity": 0.6886
+    },
+    {
+      "id": "sp10",
+      "resume_skill": "PostgreSQL",
+      "jd_skill": "MySQL",
+      "expected": "partial",
+      "similarity": 0.6886
+    },
+    {
+      "id": "sp11",
+      "resume_skill": "spaCy",
+      "jd_skill": "Natural Language Processing",
+      "expected": "partial",
+      "similarity": 0.7108
+    },
+    {
+      "id": "sp12",
+      "resume_skill": "Natural Language Processing",
+      "jd_skill": "spaCy",
+      "expected": "partial",
+      "similarity": 0.7108
+    },
+    {
+      "id": "sp13",
+      "resume_skill": "scikit-learn",
+      "jd_skill": "Machine Learning",
+      "expected": "partial",
+      "similarity": 0.5271
+    },
+    {
+      "id": "sp14",
+      "resume_skill": "PyTorch",
+      "jd_skill": "Deep Learning",
+      "expected": "partial",
+      "similarity": 0.5663
+    },
+    {
+      "id": "sp15",
+      "resume_skill": "TensorFlow",
+      "jd_skill": "PyTorch",
+      "expected": "partial",
+      "similarity": 0.7509
+    },
+    {
+      "id": "sp16",
+      "resume_skill": "Docker",
+      "jd_skill": "Kubernetes",
+      "expected": "partial",
+      "similarity": 0.5903
+    },
+    {
+      "id": "sp17",
+      "resume_skill": "AWS",
+      "jd_skill": "GCP",
+      "expected": "partial",
+      "similarity": 0.6482
+    },
+    {
+      "id": "sp18",
+      "resume_skill": "React",
+      "jd_skill": "Next.js",
+      "expected": "partial",
+      "similarity": 0.5389
+    },
+    {
+      "id": "sp19",
+      "resume_skill": "Docker",
+      "jd_skill": "Tableau",
+      "expected": "missing",
+      "similarity": 0.1184
+    },
+    {
+      "id": "sp20",
+      "resume_skill": "React",
+      "jd_skill": "Kubernetes",
+      "expected": "missing",
+      "similarity": 0.0637
+    },
+    {
+      "id": "sp21",
+      "resume_skill": "Excel",
+      "jd_skill": "PyTorch",
+      "expected": "missing",
+      "similarity": 0.0095
+    },
+    {
+      "id": "sp22",
+      "resume_skill": "Git",
+      "jd_skill": "MongoDB",
+      "expected": "missing",
+      "similarity": 0.0533
+    },
+    {
+      "id": "sp23",
+      "resume_skill": "HTML",
+      "jd_skill": "Kafka",
+      "expected": "missing",
+      "similarity": 0.0187
+    },
+    {
+      "id": "sp24",
+      "resume_skill": "Tableau",
+      "jd_skill": "Terraform",
+      "expected": "missing",
+      "similarity": 0.0277
+    },
+    {
+      "id": "sp25",
+      "resume_skill": "Java",
+      "jd_skill": "CSS",
+      "expected": "missing",
+      "similarity": 0.0565
+    },
+    {
+      "id": "sp26",
+      "resume_skill": "Redis",
+      "jd_skill": "Agile",
+      "expected": "missing",
+      "similarity": 0.0418
+    },
+    {
+      "id": "sp27",
+      "resume_skill": "Pandas",
+      "jd_skill": "Docker",
+      "expected": "missing",
+      "similarity": 0.0563
+    },
+    {
+      "id": "sp28",
+      "resume_skill": "NLTK",
+      "jd_skill": "Natural Language Processing",
+      "expected": "partial",
+      "similarity": 0.6571
+    },
+    {
+      "id": "sp29",
+      "resume_skill": "CI/CD",
+      "jd_skill": "GitHub Actions",
+      "expected": "partial",
+      "similarity": 0.7574
+    },
+    {
+      "id": "sp30",
+      "resume_skill": "REST APIs",
+      "jd_skill": "GraphQL",
+      "expected": "partial",
+      "similarity": 0.594
+    }
+  ]
+}

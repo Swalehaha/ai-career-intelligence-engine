@@ -1,0 +1,352 @@
+{
+  "dataset": "score_profiles_v1",
+  "synthetic": true,
+  "score_is_heuristic": true,
+  "thresholds": {
+    "match_threshold": 0.6,
+    "partial_threshold": 0.45
+  },
+  "tier_mean_full_scores": {
+    "medium": 66.53,
+    "strong": 100.0,
+    "weak": 0.0
+  },
+  "profiles": [
+    {
+      "id": "prof_strong",
+      "tier": "strong",
+      "notes": "Near-complete exact overlap",
+      "n_resume_skills": 8,
+      "n_jd_skills": 7,
+      "exact_matched": [
+        "AWS",
+        "Docker",
+        "FastAPI",
+        "Natural Language Processing",
+        "PostgreSQL",
+        "PyTorch",
+        "Python"
+      ],
+      "semantic_matched": [],
+      "partial": [],
+      "missing": [],
+      "baseline_score": 100.0,
+      "full_score": 100.0,
+      "baseline_breakdown": {
+        "jd_skill_count": 7,
+        "exact_matched_count": 7,
+        "semantic_matched_count": 0,
+        "partial_count": 0,
+        "exact_coverage": 1.0,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.0,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      },
+      "full_breakdown": {
+        "jd_skill_count": 7,
+        "exact_matched_count": 7,
+        "semantic_matched_count": 0,
+        "partial_count": 0,
+        "exact_coverage": 1.0,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.0,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      }
+    },
+    {
+      "id": "prof_medium",
+      "tier": "medium",
+      "notes": "Some exact, some related, some missing",
+      "n_resume_skills": 6,
+      "n_jd_skills": 6,
+      "exact_matched": [
+        "Python"
+      ],
+      "semantic_matched": [
+        {
+          "jd_skill": "FastAPI",
+          "resume_skill": "Flask",
+          "similarity": 0.6408
+        },
+        {
+          "jd_skill": "Natural Language Processing",
+          "resume_skill": "spaCy",
+          "similarity": 0.7108
+        },
+        {
+          "jd_skill": "PostgreSQL",
+          "resume_skill": "MySQL",
+          "similarity": 0.6886
+        }
+      ],
+      "partial": [
+        {
+          "jd_skill": "Kubernetes",
+          "resume_skill": "Docker",
+          "similarity": 0.5903
+        }
+      ],
+      "missing": [
+        "AWS"
+      ],
+      "baseline_score": 16.67,
+      "full_score": 65.83,
+      "baseline_breakdown": {
+        "jd_skill_count": 6,
+        "exact_matched_count": 1,
+        "semantic_matched_count": 0,
+        "partial_count": 0,
+        "exact_coverage": 0.1667,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.0,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      },
+      "full_breakdown": {
+        "jd_skill_count": 6,
+        "exact_matched_count": 1,
+        "semantic_matched_count": 3,
+        "partial_count": 1,
+        "exact_coverage": 0.1667,
+        "semantic_coverage": 0.5,
+        "partial_coverage": 0.1667,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      }
+    },
+    {
+      "id": "prof_weak",
+      "tier": "weak",
+      "notes": "Mostly unrelated to JD requirements",
+      "n_resume_skills": 4,
+      "n_jd_skills": 6,
+      "exact_matched": [],
+      "semantic_matched": [],
+      "partial": [],
+      "missing": [
+        "AWS",
+        "FastAPI",
+        "Kubernetes",
+        "PostgreSQL",
+        "PyTorch",
+        "Python"
+      ],
+      "baseline_score": 0.0,
+      "full_score": 0.0,
+      "baseline_breakdown": {
+        "jd_skill_count": 6,
+        "exact_matched_count": 0,
+        "semantic_matched_count": 0,
+        "partial_count": 0,
+        "exact_coverage": 0.0,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.0,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      },
+      "full_breakdown": {
+        "jd_skill_count": 6,
+        "exact_matched_count": 0,
+        "semantic_matched_count": 0,
+        "partial_count": 0,
+        "exact_coverage": 0.0,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.0,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      }
+    },
+    {
+      "id": "prof_exact_only_gap",
+      "tier": "medium",
+      "notes": "Half exact; remaining are container/IaC adjacent or missing",
+      "n_resume_skills": 3,
+      "n_jd_skills": 4,
+      "exact_matched": [
+        "Docker",
+        "Python"
+      ],
+      "semantic_matched": [],
+      "partial": [
+        {
+          "jd_skill": "Kubernetes",
+          "resume_skill": "Docker",
+          "similarity": 0.5903
+        }
+      ],
+      "missing": [
+        "Terraform"
+      ],
+      "baseline_score": 50.0,
+      "full_score": 60.0,
+      "baseline_breakdown": {
+        "jd_skill_count": 4,
+        "exact_matched_count": 2,
+        "semantic_matched_count": 0,
+        "partial_count": 0,
+        "exact_coverage": 0.5,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.0,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      },
+      "full_breakdown": {
+        "jd_skill_count": 4,
+        "exact_matched_count": 2,
+        "semantic_matched_count": 0,
+        "partial_count": 1,
+        "exact_coverage": 0.5,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.25,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      }
+    },
+    {
+      "id": "prof_semantic_heavy",
+      "tier": "medium",
+      "notes": "Little exact overlap; related pairs should lift semantic system vs baseline",
+      "n_resume_skills": 4,
+      "n_jd_skills": 4,
+      "exact_matched": [],
+      "semantic_matched": [
+        {
+          "jd_skill": "FastAPI",
+          "resume_skill": "Flask",
+          "similarity": 0.6408
+        },
+        {
+          "jd_skill": "Natural Language Processing",
+          "resume_skill": "spaCy",
+          "similarity": 0.7108
+        },
+        {
+          "jd_skill": "PostgreSQL",
+          "resume_skill": "MySQL",
+          "similarity": 0.6886
+        }
+      ],
+      "partial": [
+        {
+          "jd_skill": "Machine Learning",
+          "resume_skill": "scikit-learn",
+          "similarity": 0.5271
+        }
+      ],
+      "missing": [],
+      "baseline_score": 0.0,
+      "full_score": 73.75,
+      "baseline_breakdown": {
+        "jd_skill_count": 4,
+        "exact_matched_count": 0,
+        "semantic_matched_count": 0,
+        "partial_count": 0,
+        "exact_coverage": 0.0,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.0,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      },
+      "full_breakdown": {
+        "jd_skill_count": 4,
+        "exact_matched_count": 0,
+        "semantic_matched_count": 3,
+        "partial_count": 1,
+        "exact_coverage": 0.0,
+        "semantic_coverage": 0.75,
+        "partial_coverage": 0.25,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      }
+    },
+    {
+      "id": "prof_false_friend_risk",
+      "tier": "weak",
+      "notes": "Java vs JavaScript style risk; should remain weak overall",
+      "n_resume_skills": 3,
+      "n_jd_skills": 3,
+      "exact_matched": [],
+      "semantic_matched": [],
+      "partial": [],
+      "missing": [
+        "JavaScript",
+        "Kubernetes",
+        "React"
+      ],
+      "baseline_score": 0.0,
+      "full_score": 0.0,
+      "baseline_breakdown": {
+        "jd_skill_count": 3,
+        "exact_matched_count": 0,
+        "semantic_matched_count": 0,
+        "partial_count": 0,
+        "exact_coverage": 0.0,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.0,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      },
+      "full_breakdown": {
+        "jd_skill_count": 3,
+        "exact_matched_count": 0,
+        "semantic_matched_count": 0,
+        "partial_count": 0,
+        "exact_coverage": 0.0,
+        "semantic_coverage": 0.0,
+        "partial_coverage": 0.0,
+        "credit_weights": {
+          "exact": 1.0,
+          "semantic": 0.85,
+          "partial": 0.4
+        },
+        "formula": "100 * (exact + 0.85 * semantic + 0.40 * partial) / jd_skill_count"
+      }
+    }
+  ]
+}
