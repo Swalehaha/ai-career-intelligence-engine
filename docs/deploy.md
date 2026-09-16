@@ -17,6 +17,21 @@ Render resolves that to the latest supported 3.13.x patch. You can also set
 the `PYTHON_VERSION` environment variable to a fully qualified patch (e.g.
 `3.13.5`) in the Render dashboard if you need an exact pin.
 
+## CPU-only PyTorch (required for free Render)
+
+Render free Web Services are **CPU-only**. Installing plain `torch` from PyPI on
+Linux often pulls a large CUDA stack (`nvidia-cublas`, `nvidia-cudnn`, etc.).
+
+This repo pins a CPU wheel in `requirements.txt`:
+
+```text
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.0+cpu
+```
+
+That keeps `sentence-transformers` / `all-MiniLM-L6-v2` working without NVIDIA packages.
+Do **not** remove this pin unless you intentionally deploy on a GPU instance.
+
 ## Recommended: Render
 
 1. Commit and push the full project to GitHub (exclude `.venv`, caches, secrets).
@@ -28,6 +43,9 @@ the `PYTHON_VERSION` environment variable to a fully qualified patch (e.g.
      ```bash
      pip install -r requirements.txt && python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
      ```
+
+     Confirm build logs show `torch==2.14.0+cpu` (or similar `+cpu`) and **do not**
+     list `nvidia-*` CUDA packages.
 
      The optional second step pre-downloads MiniLM during build so the first
      request does not need to fetch the model. Runtime matching still **lazy-loads**
@@ -43,8 +61,8 @@ the `PYTHON_VERSION` environment variable to a fully qualified patch (e.g.
 ### Cold start and memory (important)
 
 - Embedding model: `sentence-transformers/all-MiniLM-L6-v2` (unchanged).
-- Loading uses torch + transformers; this can be **memory-heavy**.
-- Free / low-RAM instances may **OOM or time out**. This is **not guaranteed**
+- Loading uses **CPU** torch + transformers; still memory-heavy, but far smaller than CUDA builds.
+- Free / low-RAM instances may still **OOM or time out**. This is **not guaranteed**
   to run on the smallest free tier without verification on your account.
 - If the service fails under memory pressure, use a plan with more RAM.
 - First `/analyze` after process start still incurs model **load into memory**

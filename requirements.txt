@@ -1,3 +1,9 @@
+# CPU-only PyTorch for Render/Linux free instances (no CUDA/nvidia-* packages).
+# sentence-transformers depends on torch; without this pin, pip often installs
+# the CUDA build from PyPI (~2GB+ of NVIDIA wheels) which free Render cannot use.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.0+cpu
+
 fastapi>=0.115.0,<1.0
 uvicorn[standard]>=0.32.0,<1.0
 pydantic>=2.9.0,<3.0
