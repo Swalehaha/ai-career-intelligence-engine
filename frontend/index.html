@@ -18,10 +18,12 @@
     </header>
 
     <main>
-      <form id="analyze-form" class="panel">
+      <form id="analyze-form" class="panel" novalidate>
         <label class="field">
           <span>Resume PDF</span>
-          <input id="resume" name="resume" type="file" accept="application/pdf,.pdf" required />
+          <input id="resume" name="resume" type="file" accept="application/pdf,.pdf" />
+          <div id="file-meta" class="file-meta hidden" aria-live="polite"></div>
+          <p id="file-error" class="field-error hidden" role="alert"></p>
         </label>
 
         <label class="field">
@@ -31,11 +33,30 @@
             name="job_description"
             rows="10"
             placeholder="Paste the full job description here..."
-            required
           ></textarea>
+          <p id="jd-error" class="field-error hidden" role="alert"></p>
         </label>
 
-        <button id="submit-btn" type="submit">Analyze match</button>
+        <p class="cold-start-note">
+          First analysis after a period of inactivity may take a little longer while
+          the AI model starts up.
+        </p>
+
+        <button id="submit-btn" type="submit">
+          <span class="btn-label">Analyze match</span>
+          <span class="btn-spinner hidden" aria-hidden="true"></span>
+        </button>
+
+        <div id="loading" class="loading hidden" aria-live="polite">
+          <div class="spinner" aria-hidden="true"></div>
+          <p id="loading-text">Starting analysis…</p>
+        </div>
+
+        <div id="error-box" class="error-box hidden" role="alert">
+          <strong>Something went wrong</strong>
+          <p id="error-text"></p>
+        </div>
+
         <p id="status" class="status" aria-live="polite"></p>
       </form>
 
@@ -46,46 +67,48 @@
             <small>/ 100</small>
           </div>
           <div class="score-meta">
-            <h2>Match score</h2>
-            <p id="score-formula" class="muted"></p>
+            <p class="eyebrow">Overall match score</p>
+            <h2 id="score-headline">Match score</h2>
+            <p id="score-summary" class="summary"></p>
+            <p id="score-formula" class="muted small"></p>
             <ul id="score-stats" class="stats"></ul>
           </div>
         </div>
 
-        <div class="grid">
-          <article>
-            <h3>Matched skills</h3>
-            <ul id="matched-list" class="chips"></ul>
-          </article>
-          <article>
-            <h3>Semantic matches</h3>
-            <ul id="semantic-list" class="chips"></ul>
-          </article>
-          <article>
-            <h3>Partial matches</h3>
-            <ul id="partial-list" class="chips"></ul>
-          </article>
-          <article>
-            <h3>Missing skills</h3>
-            <ul id="missing-list" class="chips"></ul>
-          </article>
-        </div>
+        <section class="result-section">
+          <h3>Matched skills</h3>
+          <p class="section-help">Exact overlaps between your resume and the job description.</p>
+          <ul id="matched-list" class="chips"></ul>
+        </section>
 
-        <article class="gaps">
-          <h3>Prioritized skill gaps</h3>
-          <ol id="gaps-list"></ol>
-        </article>
+        <section class="result-section">
+          <h3>Partial / related skills</h3>
+          <p class="section-help">Semantic near-matches — related skills, not identical names.</p>
+          <ul id="related-list" class="chips"></ul>
+        </section>
+
+        <section class="result-section">
+          <h3>Skill gaps</h3>
+          <p class="section-help">Required skills that were not found on the resume.</p>
+          <ul id="missing-list" class="chips"></ul>
+        </section>
+
+        <section class="result-section">
+          <h3>What to prioritize</h3>
+          <p class="section-help">Gaps ranked by likely importance in the job description.</p>
+          <ol id="gaps-list" class="priority-list"></ol>
+        </section>
 
         <div class="recs-grid">
-          <article class="recs">
+          <section class="result-section">
             <h3>Resume suggestions</h3>
             <p class="muted small" id="recs-note"></p>
-            <ul id="resume-tips"></ul>
-          </article>
-          <article class="recs">
+            <ul id="resume-tips" class="tip-list"></ul>
+          </section>
+          <section class="result-section">
             <h3>Interview questions</h3>
-            <ol id="interview-qs"></ol>
-          </article>
+            <ol id="interview-qs" class="tip-list"></ol>
+          </section>
         </div>
       </section>
     </main>
