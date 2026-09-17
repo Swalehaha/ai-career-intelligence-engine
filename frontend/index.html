@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Career Intelligence Engine</title>
+  <title>AI Career Intelligence Engine — Understand your fit. Close the gaps.</title>
+  <meta name="description" content="Compare your resume against a target role, identify exact and semantic skill matches, prioritize gaps, and get a concrete action plan. Career intelligence built on ML." />
   <link rel="icon" href="/static/assets/logo.svg" type="image/svg+xml" />
+  <!-- Theme flash prevention -->
   <script>
     (function () {
       try {
         var stored = localStorage.getItem("acie-theme");
-        var theme =
-          stored ||
-          (window.matchMedia("(prefers-color-scheme: light)").matches
-            ? "light"
-            : "dark");
+        var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
         document.documentElement.setAttribute("data-theme", theme);
       } catch (e) {
         document.documentElement.setAttribute("data-theme", "dark");
@@ -22,176 +20,305 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body class="ui-landing">
+
+  <!-- ============================================================
+       AMBIENT BACKGROUND LAYER
+       ============================================================ -->
   <div class="ambient" aria-hidden="true">
     <div class="ambient-glow ambient-glow-a"></div>
     <div class="ambient-glow ambient-glow-b"></div>
-    <div class="ambient-mesh"></div>
     <svg class="ambient-grid" width="100%" height="100%">
       <defs>
-        <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
-          <path d="M 56 0 L 0 0 0 56" fill="none" class="grid-stroke" />
+        <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+          <path d="M 48 0 L 0 0 0 48" fill="none" class="grid-stroke" />
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#grid)" />
     </svg>
-    <svg class="ambient-orbits" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-      <ellipse class="orbit orbit-a" cx="600" cy="380" rx="420" ry="180" />
-      <ellipse class="orbit orbit-b" cx="620" cy="360" rx="280" ry="120" />
-      <circle class="orbit-node n1" cx="220" cy="320" r="2.5" />
-      <circle class="orbit-node n2" cx="980" cy="280" r="2" />
-      <circle class="orbit-node n3" cx="720" cy="520" r="2.2" />
-      <path class="orbit-path" d="M220 320 L420 300 L620 360 L820 300 L980 280" />
-    </svg>
-    <div class="ambient-particles">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-    </div>
     <div class="ambient-noise"></div>
   </div>
 
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
   <header class="site-header" id="top">
     <div class="site-header-inner">
-      <a class="brand-mark" href="#top">
-        <img
-          class="brand-logo"
-          src="/static/assets/logo.svg"
-          alt="AI Career Intelligence Engine logo"
-          width="36"
-          height="36"
-        />
-        <span class="brand-name">AI Career Intelligence Engine</span>
+      <a class="brand-mark" href="#top" aria-label="AI Career Intelligence Engine — home">
+        <img class="brand-logo" src="/static/assets/logo.svg" alt="" width="26" height="26" />
+        <span class="brand-name">AI Career Intelligence</span>
       </a>
 
-      <nav class="nav-links" aria-label="Primary">
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="#analyze" class="nav-link" data-nav="analyze">Analyze</a>
         <a href="#insights" class="nav-link" data-nav="insights">Career Insights</a>
         <a href="#gaps" class="nav-link" data-nav="gaps">Skill Gaps</a>
       </nav>
 
-      <button
-        type="button"
-        id="theme-toggle"
-        class="theme-toggle"
-        aria-label="Switch to light theme"
-        title="Toggle theme"
-      >
-        <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
-        <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
-      </button>
+      <div class="header-right">
+        <span class="engine-status" title="Analysis engine is running">
+          <span class="engine-status-dot" aria-hidden="true"></span>
+          <span class="engine-status-label">Engine Ready</span>
+        </span>
+        <button
+          type="button"
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-label="Switch to light theme"
+          title="Toggle theme"
+        >
+          <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="page">
+
+    <!-- ============================================================
+         STATE 1: LANDING PAGE
+         ============================================================ -->
     <section class="landing" id="landing" aria-label="Product introduction">
+
+      <!-- Left: Hero Copy -->
       <div class="landing-copy">
-        <p class="eyebrow landing-reveal">Your career. With clarity.</p>
+        <p class="eyebrow landing-reveal">Career Intelligence Engine</p>
         <h1 class="landing-reveal delay-1">
-          Know what stands between you<br />
-          and <em class="accent-emph">your next role</em>.
+          Understand your fit.<br />
+          <em class="accent-emph">Then close the gaps.</em>
         </h1>
         <p class="subtitle landing-reveal delay-2">
-          Turn your resume and a target job description into an actionable career roadmap.
+          Compare your resume against a target role, understand exactly where you match, identify skill gaps, and get a prioritized path forward.
         </p>
         <div class="landing-actions landing-reveal delay-3">
-          <button type="button" id="start-cta" class="start-cta">
-            <span>Let's get started</span>
-            <span aria-hidden="true">→</span>
+          <button type="button" id="start-cta" class="start-cta" aria-label="Start analysis — go to workspace">
+            <span>Analyze my profile</span>
+            <span class="cta-arrow" aria-hidden="true">→</span>
           </button>
-          <p class="landing-hint">Resume → Target role → Match → Gaps → Next actions</p>
+          <p class="landing-hint">Resume → Match → Gaps → Actions</p>
         </div>
       </div>
 
-      <aside class="landing-signal" aria-hidden="true">
-        <div class="signal-card signal-a">
-          <span class="signal-label">Match signal</span>
-          <strong>Clarity</strong>
+      <!-- Right: Career Match Preview Card -->
+      <aside class="hero-preview landing-reveal delay-2" aria-label="Product preview — example analysis" aria-hidden="true">
+        <div class="preview-card">
+          <div class="preview-card-header">
+            <div class="preview-card-header-left">
+              <span class="preview-eyebrow">ROLE FIT BRIEF</span>
+              <span class="preview-role-name">ML Engineer Intern</span>
+            </div>
+            <span class="preview-sample-badge">
+              <span class="preview-sample-dot"></span>Example analysis
+            </span>
+          </div>
+
+          <div class="preview-context-row">
+            <span>RESUME</span><i></i><span>TARGET ROLE</span>
+          </div>
+
+          <div class="preview-score-section">
+            <div class="preview-ring-wrap">
+              <svg class="preview-ring-svg" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="40" r="30" class="preview-ring-track" />
+                <circle cx="40" cy="40" r="30" class="preview-ring-progress" id="preview-ring-fill" />
+              </svg>
+              <div class="preview-ring-inner">
+                <span class="preview-score-num" id="preview-score-num">0</span>
+                <span class="preview-score-pct">%</span>
+              </div>
+            </div>
+            <div class="preview-score-right">
+              <span class="preview-score-label">Match Score</span>
+              <span class="preview-score-qual">Strong alignment</span>
+              <div class="preview-progress-track">
+                <div class="preview-progress-fill" id="preview-bar-fill"></div>
+              </div>
+              <span class="preview-score-note">Exact and related skills compared</span>
+            </div>
+          </div>
+
+          <div class="preview-skills-grid">
+            <div class="preview-skill ps-match" data-reveal-index="0">
+              <svg class="ps-icon" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Python</span>
+            </div>
+            <div class="preview-skill ps-match" data-reveal-index="1">
+              <svg class="ps-icon" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>TensorFlow</span>
+            </div>
+            <div class="preview-skill ps-match" data-reveal-index="2">
+              <svg class="ps-icon" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>FastAPI</span>
+            </div>
+            <div class="preview-skill ps-partial" data-reveal-index="3">
+              <svg class="ps-icon" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" transform="rotate(45 6 6)"/></svg>
+              <span>Docker</span>
+            </div>
+            <div class="preview-skill ps-missing" data-reveal-index="4">
+              <svg class="ps-icon" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 4v3M6 8.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span>Kubernetes</span>
+            </div>
+            <div class="preview-skill ps-missing" data-reveal-index="5">
+              <svg class="ps-icon" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 4v3M6 8.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span>AWS</span>
+            </div>
+          </div>
+
+          <div class="preview-card-footer">
+            <span class="preview-gap-count">3 priority gaps</span>
+            <span class="preview-action-hint">View action plan →</span>
+          </div>
         </div>
-        <div class="signal-card signal-b">
-          <span class="signal-label">Skill path</span>
-          <strong>Direction</strong>
-        </div>
-        <div class="signal-card signal-c">
-          <span class="signal-label">Next move</span>
-          <strong>Action</strong>
-        </div>
-        <!-- Career Intelligence Network — improved visualization -->
-        <svg class="signal-lines" viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <!-- Soft halo behind central node -->
-            <radialGradient id="center-halo-grad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%"   stop-color="#62C795" stop-opacity="0.22" />
-              <stop offset="100%" stop-color="#62C795" stop-opacity="0"   />
-            </radialGradient>
-            <!-- Travel path for signal dot: MATCH → center → SKILLS -->
-            <path id="sig-path" d="M76 56 C 110 80, 126 100, 160 130 C 192 108, 210 84, 244 58" />
-          </defs>
-
-          <!-- Background halo behind central node -->
-          <circle cx="160" cy="130" r="58" fill="url(#center-halo-grad)" class="center-halo" />
-
-          <!-- Connection lines — staggered pulse animation -->
-          <line x1="160" y1="130" x2="76"  y2="56"  class="signal-line sl-1" />
-          <line x1="160" y1="130" x2="244" y2="58"  class="signal-line sl-2" />
-          <line x1="160" y1="130" x2="62"  y2="202" class="signal-line sl-3" />
-          <line x1="160" y1="130" x2="258" y2="198" class="signal-line sl-4" />
-
-          <!-- Satellite node: MATCH (top-left) -->
-          <circle cx="76"  cy="56"  r="22" class="signal-node-ring snr-1" />
-          <circle cx="76"  cy="56"  r="5.5" class="signal-node-dot snd-1" />
-          <text x="76"  y="62" class="signal-node-label">MATCH</text>
-
-          <!-- Satellite node: SKILLS (top-right) -->
-          <circle cx="244" cy="58"  r="22" class="signal-node-ring snr-2" />
-          <circle cx="244" cy="58"  r="5.5" class="signal-node-dot snd-2" />
-          <text x="244" y="64" class="signal-node-label">SKILLS</text>
-
-          <!-- Satellite node: GAPS (bottom-left) -->
-          <circle cx="62"  cy="202" r="22" class="signal-node-ring snr-3" />
-          <circle cx="62"  cy="202" r="5.5" class="signal-node-dot snd-3" />
-          <text x="62"  y="208" class="signal-node-label">GAPS</text>
-
-          <!-- Satellite node: ACTION (bottom-right) -->
-          <circle cx="258" cy="198" r="22" class="signal-node-ring snr-4" />
-          <circle cx="258" cy="198" r="5.5" class="signal-node-dot snd-4" />
-          <text x="258" y="204" class="signal-node-label">ACTION</text>
-
-          <!-- Central node — breathing animation -->
-          <circle cx="160" cy="130" r="36" class="signal-center-ring" />
-          <circle cx="160" cy="130" r="8"  class="signal-center-dot" />
-          <text x="160" y="127" class="signal-center-label">CAREER</text>
-          <text x="160" y="139" class="signal-center-label">PROFILE</text>
-
-          <!-- Travelling signal dot: MATCH → center → SKILLS -->
-          <circle r="3" class="signal-traveller" opacity="0">
-            <animateMotion dur="10s" repeatCount="indefinite" begin="3s"
-              calcMode="spline"
-              keyTimes="0;0.5;1"
-              keySplines="0.42 0 0.58 1; 0.42 0 0.58 1">
-              <mpath href="#sig-path" />
-            </animateMotion>
-            <animate attributeName="opacity"
-              values="0;0;0.9;0.9;0"
-              keyTimes="0;0.06;0.15;0.85;1"
-              dur="10s" repeatCount="indefinite" begin="3s" />
-          </circle>
-        </svg>
       </aside>
     </section>
 
+    <!-- ============================================================
+         PRODUCT FLOW SECTION
+         ============================================================ -->
+    <section class="flow-section reveal-section" aria-label="How the platform works">
+      <div class="flow-header">
+        <p class="eyebrow">How it works</p>
+        <h2>From resume to action.</h2>
+      </div>
+      <div class="flow-steps" role="list">
+
+        <div class="flow-step" role="listitem">
+          <div class="flow-step-num">01</div>
+          <div class="flow-step-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 3h8l4 4v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z"/>
+              <path d="M12 3v5h5"/>
+            </svg>
+          </div>
+          <h3 class="flow-step-title">Resume</h3>
+          <p class="flow-step-desc">Upload your PDF. The engine extracts all mentioned skills, tools, and technologies.</p>
+        </div>
+
+        <div class="flow-connector" aria-hidden="true">
+          <svg viewBox="0 0 24 8" fill="none" class="flow-arrow-svg"><path d="M0 4h20M16 1l4 3-4 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <div class="flow-step" role="listitem">
+          <div class="flow-step-num">02</div>
+          <div class="flow-step-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="16" height="12" rx="1.5"/>
+              <path d="M6 8h8M6 12h5"/>
+            </svg>
+          </div>
+          <h3 class="flow-step-title">Target Role</h3>
+          <p class="flow-step-desc">Paste the job description. Required skills are identified and weighted by frequency.</p>
+        </div>
+
+        <div class="flow-connector" aria-hidden="true">
+          <svg viewBox="0 0 24 8" fill="none" class="flow-arrow-svg"><path d="M0 4h20M16 1l4 3-4 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <div class="flow-step" role="listitem">
+          <div class="flow-step-num">03</div>
+          <div class="flow-step-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="5" cy="10" r="2.5"/>
+              <circle cx="15" cy="10" r="2.5"/>
+              <path d="M7.5 10h5" stroke-dasharray="1.5 1.5"/>
+            </svg>
+          </div>
+          <h3 class="flow-step-title">Match Analysis</h3>
+          <p class="flow-step-desc">The semantic engine compares skills beyond keywords — recognizing related technologies.</p>
+        </div>
+
+        <div class="flow-connector" aria-hidden="true">
+          <svg viewBox="0 0 24 8" fill="none" class="flow-arrow-svg"><path d="M0 4h20M16 1l4 3-4 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <div class="flow-step" role="listitem">
+          <div class="flow-step-num">04</div>
+          <div class="flow-step-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 4v12M4 10h12"/>
+              <circle cx="10" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3 class="flow-step-title">Skill Gaps</h3>
+          <p class="flow-step-desc">Missing and partial capabilities are ranked by their impact on your overall match score.</p>
+        </div>
+
+        <div class="flow-connector" aria-hidden="true">
+          <svg viewBox="0 0 24 8" fill="none" class="flow-arrow-svg"><path d="M0 4h20M16 1l4 3-4 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <div class="flow-step" role="listitem">
+          <div class="flow-step-num">05</div>
+          <div class="flow-step-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 10l4 4 8-8"/>
+              <rect x="2" y="2" width="16" height="16" rx="2"/>
+            </svg>
+          </div>
+          <h3 class="flow-step-title">Next Actions</h3>
+          <p class="flow-step-desc">Concrete, prioritized steps: what to build, learn, and how to prepare for interviews.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INTERACTIVE CAPABILITY SHOWCASE
+         ============================================================ -->
+    <section class="capabilities-section reveal-section" aria-label="Platform capabilities">
+      <div class="capability-layout">
+        <div class="capability-intro">
+          <p class="eyebrow">What you get</p>
+          <h2>Everything you need to understand your fit.</h2>
+          <p>Compare requirements, find the signal behind a match, and turn gaps into a practical next step.</p>
+          <div class="capability-tabs" role="tablist" aria-label="Product capabilities">
+            <button class="cap-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="cap-panel-match" data-capability="match">Match intelligence</button>
+            <button class="cap-tab" type="button" role="tab" aria-selected="false" aria-controls="cap-panel-semantic" data-capability="semantic">Semantic matching</button>
+            <button class="cap-tab" type="button" role="tab" aria-selected="false" aria-controls="cap-panel-gaps" data-capability="gaps">Skill gaps</button>
+            <button class="cap-tab" type="button" role="tab" aria-selected="false" aria-controls="cap-panel-actions" data-capability="actions">Action plan</button>
+          </div>
+        </div>
+        <div class="capability-demo" aria-live="polite">
+          <div class="cap-demo-header">
+            <span class="cap-demo-kicker">CAREER MATCH / PREVIEW</span>
+            <span class="cap-demo-state"><span></span>Live model view</span>
+          </div>
+          <div class="cap-panel is-active" id="cap-panel-match" data-panel="match" role="tabpanel">
+            <div class="cap-demo-title-row"><div><span class="cap-demo-label">MATCH INTELLIGENCE</span><h3>Requirement coverage</h3></div><strong>82%</strong></div>
+            <div class="cap-demo-progress"><span style="width: 82%"></span></div>
+            <div class="cap-demo-chips"><span class="is-match">✓ Python</span><span class="is-match">✓ SQL</span><span class="is-partial">~ Docker</span><span class="is-gap">! Kubernetes</span></div>
+          </div>
+          <div class="cap-panel" id="cap-panel-semantic" data-panel="semantic" role="tabpanel" hidden>
+            <span class="cap-demo-label">SEMANTIC MATCHING</span><h3>Related capabilities, made visible.</h3>
+            <div class="semantic-demo"><span>PostgreSQL</span><div><b>72%</b><i></i></div><span>SQL</span></div>
+            <p>Context-aware similarity recognizes adjacent skills beyond exact keywords.</p>
+          </div>
+          <div class="cap-panel" id="cap-panel-gaps" data-panel="gaps" role="tabpanel" hidden>
+            <span class="cap-demo-label">SKILL GAPS</span><h3>Close the highest-impact gaps first.</h3>
+            <div class="gap-demo"><div><span>Kubernetes</span><i class="high" style="width: 88%"></i><b>HIGH</b></div><div><span>Docker</span><i class="medium" style="width: 58%"></i><b>MEDIUM</b></div><div><span>Airflow</span><i class="low" style="width: 31%"></i><b>LOW</b></div></div>
+          </div>
+          <div class="cap-panel" id="cap-panel-actions" data-panel="actions" role="tabpanel" hidden>
+            <span class="cap-demo-label">ACTION PLAN</span><h3>Know what to do next.</h3>
+            <div class="action-demo"><span class="done">✓ Highlight existing experience</span><span>○ Learn Kubernetes basics</span><span>○ Prepare Docker questions</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STATE 2: ANALYSIS WORKSPACE
+         ============================================================ -->
     <main>
       <section class="workspace-shell" id="workspace-shell">
         <div class="workspace-intro expanded-only">
-          <p class="eyebrow">Analysis workspace</p>
-          <h2>Build your career profile</h2>
+          <p class="eyebrow">Analysis Workspace</p>
+          <h2>Build your career profile.</h2>
           <p class="workspace-support">
-            Upload your resume and tell us what role you're targeting.
+            Upload your resume and target role. We'll break down the match, identify skill gaps, and build your action plan.
           </p>
         </div>
 
@@ -205,25 +332,29 @@
           </div>
 
           <div class="stages">
+
+            <!-- Stage 01: Resume Upload -->
             <div class="stage stage-resume">
               <div class="stage-head">
                 <span class="stage-num">01</span>
                 <span class="stage-name">Resume</span>
               </div>
               <label class="field resume-field">
-                <span class="visually-hidden">Resume PDF</span>
+                <span class="visually-hidden">Resume PDF (required)</span>
                 <div class="upload-shell input-surface">
                   <input
                     id="resume"
                     name="resume"
                     type="file"
                     accept="application/pdf,.pdf"
+                    aria-describedby="file-meta file-error"
                   />
                   <div class="upload-visual" aria-hidden="true">
                     <span class="upload-icon"></span>
                     <div class="upload-copy">
-                      <strong id="resume-title">Upload your resume</strong>
-                      <small id="resume-sub">PDF only · Drag &amp; drop or browse</small>
+                      <strong id="resume-title">Drop your resume here</strong>
+                      <small id="resume-sub">PDF only · Max 10 MB</small>
+                      <small class="upload-browse">or click to browse</small>
                     </div>
                   </div>
                 </div>
@@ -232,14 +363,22 @@
               </label>
             </div>
 
+            <!-- Stage 02: Target Role -->
             <div class="stage stage-role">
               <div class="stage-head">
                 <span class="stage-num">02</span>
                 <span class="stage-name">Target Role</span>
               </div>
               <label class="field role-field">
-                <span class="visually-hidden">Target role</span>
+                <span class="visually-hidden">Target role title (optional)</span>
                 <div class="role-surface input-surface">
+                  <div class="role-label-row" aria-hidden="true">
+                    <svg class="role-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="1.5" y="4.5" width="11" height="8" rx="1.2"/>
+                      <path d="M4.5 4.5V3.5a2.5 2.5 0 015 0v1"/>
+                    </svg>
+                    <span class="role-field-label">TARGET ROLE</span>
+                  </div>
                   <input
                     id="target_role"
                     name="target_role"
@@ -249,29 +388,42 @@
                     autocomplete="organization-title"
                   />
                   <p class="field-hint expanded-only">
-                    Optional — frames your results. Not sent to the model.
+                    Optional — helps frame the analysis context.
                   </p>
                 </div>
               </label>
             </div>
 
+            <!-- Stage 03: Job Description -->
             <div class="stage stage-jd">
               <div class="stage-head">
                 <span class="stage-num">03</span>
                 <span class="stage-name">Job Description</span>
               </div>
               <label class="field jd-field">
-                <span class="visually-hidden">Job description</span>
-                <textarea
-                  id="job_description"
-                  name="job_description"
-                  rows="9"
-                  placeholder="Paste the job description here..."
-                ></textarea>
+                <span class="visually-hidden">Job description (required)</span>
+                <div class="jd-wrapper">
+                  <div class="jd-header-row" aria-hidden="true">
+                    <svg class="jd-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="1.5" y="1.5" width="11" height="11" rx="1.2"/>
+                      <path d="M4 5h6M4 8h4"/>
+                    </svg>
+                    <span class="jd-field-label">JOB DESCRIPTION</span>
+                    <span class="jd-char-count" id="jd-char-count">0 characters</span>
+                  </div>
+                  <textarea
+                    id="job_description"
+                    name="job_description"
+                    rows="9"
+                    placeholder="Paste the job description here..."
+                    aria-describedby="jd-error"
+                  ></textarea>
+                </div>
                 <p id="jd-error" class="field-error hidden" role="alert"></p>
               </label>
             </div>
 
+            <!-- Stage 04: CTA -->
             <div class="stage stage-cta">
               <div class="stage-head compact-only" aria-hidden="true">
                 <span class="stage-name">Analyze</span>
@@ -282,12 +434,14 @@
                   <span class="btn-arrow" aria-hidden="true">→</span>
                   <span class="btn-spinner hidden" aria-hidden="true"></span>
                 </button>
-                <p class="cta-sub expanded-only">Powered by AI. Built for your future.</p>
+                <p class="cta-sub expanded-only">Your resume is processed locally by the analysis service.</p>
               </div>
             </div>
-          </div>
 
-          <ul class="status-rail expanded-only" aria-label="Analysis readiness">
+          </div><!-- /.stages -->
+
+          <!-- Readiness indicators -->
+          <ul class="status-rail expanded-only" aria-label="Analysis readiness checklist">
             <li id="status-pdf" class="status-chip">
               <span class="status-dot" aria-hidden="true"></span>
               PDF ready
@@ -303,15 +457,15 @@
           </ul>
 
           <p class="cold-start-note expanded-only">
-            First analysis after idle time may take a little longer while the embedding model warms up.
+            First analysis after idle may take a little longer while the embedding model initializes.
           </p>
 
-          <div id="loading" class="loading hidden" aria-live="polite">
+          <div id="loading" class="loading hidden" aria-live="polite" aria-atomic="true">
             <div class="spinner" aria-hidden="true"></div>
             <p id="loading-text">Starting analysis…</p>
           </div>
 
-          <div id="error-box" class="error-box hidden" role="alert">
+          <div id="error-box" class="error-box hidden" role="alert" aria-atomic="true">
             <strong>Something went wrong</strong>
             <p id="error-text"></p>
           </div>
@@ -320,9 +474,14 @@
         </form>
       </section>
 
-      <section id="results" class="results hidden">
+      <!-- ============================================================
+           STATE 3: RESULTS DASHBOARD
+           ============================================================ -->
+      <section id="results" class="results hidden" aria-label="Analysis results">
+
+        <!-- Results intro header -->
         <div class="results-intro" id="insights">
-          <p class="eyebrow">Your analysis results</p>
+          <p class="eyebrow">Analysis Complete</p>
           <h2 id="results-heading">Here's how your profile matches the target role.</h2>
           <div class="results-meta-row">
             <p id="results-role" class="results-role hidden"></p>
@@ -330,6 +489,7 @@
           </div>
         </div>
 
+        <!-- Score Panel -->
         <div class="score-panel">
           <div class="score-focal">
             <div
@@ -353,6 +513,10 @@
             <ul id="snapshot-insights" class="snapshot-insights"></ul>
             <div class="summary-cards" aria-label="Skill coverage summary">
               <article class="summary-card">
+                <strong id="card-jd">0</strong>
+                <span>JD Skills</span>
+              </article>
+              <article class="summary-card">
                 <strong id="card-matched">0</strong>
                 <span>Matched</span>
               </article>
@@ -364,55 +528,77 @@
                 <strong id="card-gaps">0</strong>
                 <span>Gaps</span>
               </article>
-              <article class="summary-card">
-                <strong id="card-jd">0</strong>
-                <span>JD Skills</span>
-              </article>
+            </div>
+            <div class="coverage-band" aria-label="Requirement coverage">
+              <div class="coverage-band-head">
+                <span>Requirement coverage</span>
+                <strong id="coverage-label">0 of 0 classified</strong>
+              </div>
+              <div class="coverage-track" aria-hidden="true">
+                <span id="coverage-exact"></span>
+                <span id="coverage-related"></span>
+                <span id="coverage-gap"></span>
+              </div>
+              <div class="coverage-legend">
+                <span><i class="legend-exact"></i>Exact</span>
+                <span><i class="legend-related"></i>Related</span>
+                <span><i class="legend-gap"></i>Missing</span>
+              </div>
             </div>
             <ul id="score-stats" class="stats visually-hidden" aria-hidden="true"></ul>
           </div>
         </div>
 
-        <section class="result-section skills-section" id="matched-section">
+        <!-- Matched Skills -->
+        <section class="result-section skills-section" id="matched-section" aria-labelledby="matched-heading">
           <div class="section-head">
-            <h3>Matched skills</h3>
+            <div class="section-head-row">
+              <span class="section-badge section-badge-match" aria-hidden="true">Matched</span>
+              <h3 id="matched-heading">Matched skills</h3>
+            </div>
             <p class="section-help">Exact overlaps between your resume and the job description.</p>
           </div>
           <ul id="matched-list" class="chips"></ul>
         </section>
 
-        <section class="result-section skills-section">
+        <!-- Related / Partial Skills -->
+        <section class="result-section skills-section" aria-labelledby="related-heading">
           <div class="section-head">
-            <h3>Related / partial skills</h3>
-            <p class="section-help">Semantic near-matches — related skills, not identical names.</p>
+            <div class="section-head-row">
+              <span class="section-badge section-badge-partial" aria-hidden="true">Semantic</span>
+              <h3 id="related-heading">Related / partial skills</h3>
+            </div>
+            <p class="section-help">Semantic near-matches — related skills recognized beyond identical keywords.</p>
           </div>
           <ul id="related-list" class="relation-list"></ul>
         </section>
 
-        <section class="result-section skills-section gap-section" id="gaps">
+        <!-- Missing Skills -->
+        <section class="result-section skills-section gap-section" id="gaps" aria-labelledby="missing-heading">
           <div class="section-head">
-            <h3>Missing skills</h3>
-            <p class="section-help">
-              Required skills from the target role that weren't found in your resume.
-            </p>
+            <div class="section-head-row">
+              <span class="section-badge section-badge-gap" aria-hidden="true">Missing</span>
+              <h3 id="missing-heading">Missing skills</h3>
+            </div>
+            <p class="section-help">Required skills from the target role not found in your resume.</p>
           </div>
           <ul id="missing-list" class="chips"></ul>
         </section>
 
-        <section class="result-section priority-section">
+        <!-- Prioritized Gaps -->
+        <section class="result-section priority-section" aria-labelledby="gaps-heading">
           <div class="section-head">
-            <h3>Prioritize these next</h3>
-            <p class="section-help">Based on role relevance and your current profile.</p>
+            <h3 id="gaps-heading">Close these gaps first.</h3>
+            <p class="section-help">Ranked by their impact on your overall match score and role relevance.</p>
           </div>
           <ol id="gaps-list" class="priority-list"></ol>
         </section>
 
-        <section class="result-section moves-section">
+        <!-- Next Moves / Recommendations -->
+        <section class="result-section moves-section" aria-labelledby="moves-heading">
           <div class="section-head">
-            <h3>Your next moves</h3>
-            <p class="section-help" id="recs-note">
-              A personalized action plan to get you job-ready.
-            </p>
+            <h3 id="moves-heading">Your next moves.</h3>
+            <p class="section-help" id="recs-note">A personalized action plan to get you job-ready.</p>
           </div>
           <div class="moves-grid">
             <article class="move-card move-build">
@@ -436,13 +622,97 @@
             <ol id="interview-qs" class="tip-list interview-list"></ol>
           </div>
         </section>
-      </section>
+
+      </section><!-- /#results -->
     </main>
 
     <footer class="site-footer">
-      <p>Resume → Target role → Match analysis → Skill gaps → Priorities → Next actions</p>
+      <div class="footer-inner">
+        <span class="footer-brand">AI Career Intelligence Engine</span>
+        <span class="footer-divider" aria-hidden="true">·</span>
+        <p class="footer-flow">Resume → Match → Skill gaps → Priorities → Actions</p>
+      </div>
     </footer>
-  </div>
+
+  </div><!-- /.page -->
+
+  <!-- Main application script (no modifications) -->
   <script src="/static/app.js"></script>
+
+  <!-- Supplemental UI enhancements (preview animation + char counter) -->
+  <script>
+    (function () {
+      'use strict';
+
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ——— Preview Card Score Animation ——— */
+      function runPreviewAnimation() {
+        var numEl = document.getElementById('preview-score-num');
+        var ringEl = document.getElementById('preview-ring-fill');
+        var barEl = document.getElementById('preview-bar-fill');
+        var skills = document.querySelectorAll('.preview-skill');
+        var target = 82;
+        var r = 30;
+        var circ = 2 * Math.PI * r; // ≈ 188.5
+
+        function setRingProgress(pct) {
+          if (!ringEl) return;
+          var offset = circ * (1 - pct / 100);
+          ringEl.style.strokeDashoffset = offset;
+        }
+
+        if (prefersReduced) {
+          if (numEl) numEl.textContent = target;
+          setRingProgress(target);
+          if (barEl) barEl.style.width = target + '%';
+          skills.forEach(function (el) { el.classList.add('ps-visible'); });
+          return;
+        }
+
+        // Animate after a short delay so the card has rendered
+        setTimeout(function () {
+          var start = performance.now();
+          var dur = 1200;
+
+          function tick(now) {
+            var t = Math.min((now - start) / dur, 1);
+            var ease = 1 - Math.pow(1 - t, 3);
+            var cur = Math.round(ease * target);
+            if (numEl) numEl.textContent = cur;
+            setRingProgress(cur);
+            if (barEl) barEl.style.width = (ease * target) + '%';
+            if (t < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+
+          // Stagger skill pills
+          skills.forEach(function (el, i) {
+            setTimeout(function () {
+              el.classList.add('ps-visible');
+            }, 250 + i * 110);
+          });
+        }, 700);
+      }
+
+      if (document.body.classList.contains('ui-landing')) {
+        runPreviewAnimation();
+      }
+
+      /* ——— JD Character Counter ——— */
+      var jdTextarea = document.getElementById('job_description');
+      var jdCount = document.getElementById('jd-char-count');
+      if (jdTextarea && jdCount) {
+        function updateJdCount() {
+          var n = jdTextarea.value.length;
+          jdCount.textContent = n.toLocaleString() + (n === 1 ? ' character' : ' characters');
+        }
+        jdTextarea.addEventListener('input', updateJdCount);
+        updateJdCount();
+      }
+
+    })();
+  </script>
+
 </body>
 </html>

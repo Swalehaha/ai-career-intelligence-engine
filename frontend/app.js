@@ -71,6 +71,49 @@ if (startCta) {
   startCta.addEventListener("click", () => enterWorkspace(true));
 }
 
+document.querySelectorAll("[data-start-analysis]").forEach((button) => {
+  button.addEventListener("click", () => enterWorkspace(true));
+});
+
+document.querySelectorAll(".cap-tab[data-capability]").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const capability = tab.dataset.capability;
+    document.querySelectorAll(".cap-tab[data-capability]").forEach((item) => {
+      const active = item === tab;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-selected", String(active));
+    });
+    document.querySelectorAll(".cap-panel[data-panel]").forEach((panel) => {
+      const active = panel.dataset.panel === capability;
+      panel.classList.toggle("is-active", active);
+      panel.hidden = !active;
+    });
+  });
+});
+
+if (uploadShell) {
+  ["dragenter", "dragover"].forEach((eventName) => {
+    uploadShell.addEventListener(eventName, (event) => {
+      event.preventDefault();
+      uploadShell.classList.add("is-dragging");
+    });
+  });
+  ["dragleave", "drop"].forEach((eventName) => {
+    uploadShell.addEventListener(eventName, (event) => {
+      event.preventDefault();
+      uploadShell.classList.remove("is-dragging");
+    });
+  });
+  uploadShell.addEventListener("drop", (event) => {
+    const file = event.dataTransfer.files[0];
+    if (!file || !window.DataTransfer) return;
+    const transfer = new DataTransfer();
+    transfer.items.add(file);
+    resumeInput.files = transfer.files;
+    resumeInput.dispatchEvent(new Event("change", { bubbles: true }));
+  });
+}
+
 document.querySelectorAll('.nav-link[data-nav="analyze"]').forEach((link) => {
   link.addEventListener("click", (event) => {
     if (document.body.classList.contains("ui-landing")) {
@@ -579,6 +622,12 @@ function renderResults(data) {
   setCardCount("card-related", relatedCount);
   setCardCount("card-gaps", missing.length);
   setCardCount("card-jd", jdCount);
+  fillCoverage({
+    exactCount,
+    relatedCount,
+    gapCount: missing.length,
+    jdCount,
+  });
   fillSnapshotInsights({
     exactCount,
     relatedCount,
@@ -595,6 +644,30 @@ function renderResults(data) {
 
   results.scrollIntoView({ behavior: "smooth", block: "start" });
   updateNavActive();
+}
+
+function fillCoverage({ exactCount, relatedCount, gapCount, jdCount }) {
+  const total = Math.max(Number(jdCount) || 0, 0);
+  const exact = Math.max(Number(exactCount) || 0, 0);
+  const related = Math.max(Number(relatedCount) || 0, 0);
+  const gaps = Math.max(Number(gapCount) || 0, 0);
+  const classified = exact + related + gaps;
+  const denominator = total || classified;
+  const setWidth = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.style.width = `${denominator ? (value / denominator) * 100 : 0}%`;
+  };
+
+  setWidth("coverage-exact", exact);
+  setWidth("coverage-related", related);
+  setWidth("coverage-gap", gaps);
+
+  const label = document.getElementById("coverage-label");
+  if (label) {
+    label.textContent = denominator
+      ? `${classified} of ${denominator} classified`
+      : "No requirements classified";
+  }
 }
 
 function fillSnapshotInsights({
